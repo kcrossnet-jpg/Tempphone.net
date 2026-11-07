@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      @keyframes ping {
+        0% {
+          r: 5px;
+          opacity: 0.9;
+        }
+        70% {
+          r: 12px;
+          opacity: 0.15;
+        }
+        100% {
+          r: 14px;
+          opacity: 0;
+        }
+      }
+      @keyframes blink {
+        0%, 100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.45;
+          transform: scale(0.88);
+        }
+      }
+      .pulse-ring {
+        transform-origin: 47px 17px;
+        animation: ping 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+      .blinking-dot {
+        transform-origin: 47px 17px;
+        animation: blink 1.2s ease-in-out infinite;
+      }
+    </style>
+    <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5E5E" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#B23A2E" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#7A1C14" stop-opacity="0.8"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Dark Retro Ticket Background Tile -->
+  <rect width="64" height="64" rx="14" fill="#221D16"/>
+
+  <!-- Subtle Ticket Border Perforation Effect -->
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#E9DEC3" stroke-width="1.5" stroke-dasharray="4 2" stroke-opacity="0.3"/>
+
+  <!-- Lettermark 'T' -->
+  <text x="21" y="47" font-family="'Anton', 'Impact', -apple-system, BlinkMacSystemFont, sans-serif" font-size="42" font-weight="900" fill="#E9DEC3" letter-spacing="-1">T</text>
+
+  <!-- Expanding Pulse / Ping Ring -->
+  <circle class="pulse-ring" cx="47" cy="17" r="5" fill="#B23A2E">
+    <animate attributeName="r" values="5;13;15" dur="1.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.2;0" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Blinking Red Indicator Dot Outer Halo -->
+  <circle cx="47" cy="17" r="8" fill="#B23A2E" opacity="0.3">
+    <animate attributeName="opacity" values="0.35;0.1;0.35" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Main Blinking Red Dot Body -->
+  <circle class="blinking-dot" cx="47" cy="17" r="5.5" fill="url(#dotGlow)">
+    <animate attributeName="opacity" values="1;0.4;1" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Specular Center Highlight -->
+  <circle class="blinking-dot" cx="45.8" cy="15.8" r="1.8" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

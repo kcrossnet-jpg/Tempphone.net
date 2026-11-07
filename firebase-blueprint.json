@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "CallRecording": {
+      "title": "CallRecording",
+      "description": "Metadata for a recorded call",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "ticketNo": { "type": "string" },
+        "recordingUrl": { "type": "string" },
+        "duration": { "type": "number" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "ticketNo", "recordingUrl", "timestamp"]
+    },
+    "ForwardedEmail": {
+      "title": "ForwardedEmail",
+      "description": "Content of a forwarded email",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "ticketNo": { "type": "string" },
+        "from": { "type": "string" },
+        "subject": { "type": "string" },
+        "body": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "ticketNo", "from", "subject", "body", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/phoneTickets/{ticketId}/recordings/{recordingId}": {
+      "schema": "CallRecording",
+      "description": "Call recordings associated with a ticket"
+    },
+    "/phoneTickets/{ticketId}/forwardedEmails/{emailId}": {
+      "schema": "ForwardedEmail",
+      "description": "Forwarded emails associated with a ticket"
+    }
+  }
+}

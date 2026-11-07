@@ -1,0 +1,6 @@
+{
+  "name": "TempPhone",
+  "description": "Rent disposable phone numbers and temporary email inboxes with real-time SMS, 2FA testing, and automatic expiration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
